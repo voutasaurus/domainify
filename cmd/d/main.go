@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/voutasaurus/domainify/domainify"
@@ -25,5 +26,5 @@ func main() {
 			http.Error(w, fmt.Sprintf("Error encoding response: %v", err), 500)
 		}
 	})
-	http.ListenAndServe(":9090", nil)
+	log.Fatal(http.ListenAndServe(":9090", nil))
 }
