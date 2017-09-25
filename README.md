@@ -11,9 +11,9 @@ $ go get -u github.com/voutasaurus/domainify
 # use
 
 ```
-$ domainify bridgedad
-bridged.ad
-bridge.dad
+$ domainify loveit
+love.it
+lo.ve.it
 ```
 
 ```
