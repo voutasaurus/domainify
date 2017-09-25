@@ -54,9 +54,12 @@ func domainify(phrase string) (domains []string, err error) {
 		if len(line) == 0 || strings.HasPrefix(line, "//") {
 			continue
 		}
-		line = r.Replace(line)
-		if strings.HasSuffix(phrase, line) {
-			dd = append(dd, phrase[:len(phrase)-len(line)]+"."+line)
+		suffix := r.Replace(line)
+		if strings.HasSuffix(phrase, suffix) {
+			for strings.HasPrefix(line, "*.") {
+				line = line[2:]
+			}
+			dd = append(dd, phrase[:len(phrase)-len(suffix)]+"."+line)
 		}
 	}
 	if err := s.Err(); err != nil {
