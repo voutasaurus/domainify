@@ -12,7 +12,7 @@ import (
 func main() {
 	log.SetFlags(0)
 	if len(os.Args) < 2 || len(os.Args) > 3 {
-		log.Fatal("Expected single argument, got: %d", len(os.Args)-1)
+		log.Fatalf("Expected single argument, got: %d", len(os.Args)-1)
 	}
 	dd, err := domainify(strings.ToLower(os.Args[1]))
 	if err != nil {
