@@ -24,6 +24,9 @@ func Possibilities(phrase string) (domains []string, err error) {
 			continue
 		}
 		suffix := strings.NewReplacer(".", "", "*", "").Replace(line)
+		if phrase == suffix {
+			continue
+		}
 		if strings.HasSuffix(phrase, suffix) {
 			if strings.HasPrefix(line, "*.") {
 				line = line[2:]
